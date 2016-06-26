@@ -1,11 +1,13 @@
 import { Template } from 'meteor/templating';
 import { ReactiveVar } from 'meteor/reactive-var';
-import { ShorterUrl } from '../lib/persistence/shorterurl.js';
+import { ShorterUrl } from '../../lib/persistence/shorterurl.js';
 
 import './main.html';
 import './home.html';
 import './shortenerUrlSection.html';
 import './allUrl.html';
+
+
 
 //it validates the inserted  url
 function validateURL(currentUrl) {
@@ -76,13 +78,15 @@ Template.allUrl.allURL = function () {
   return ShorterUrl.find({limit: 5});
 };
 */
-
+/*
 Template.allUrl.helpers({
     'allURL': function(){
-        return ShorterUrl.find({limit: 5});
+      var x = ShorterUrl.find({}).fetch();
+      console.log(x[0]);
+        return x[0];
     }
 });
 
-
+*/
 
 
