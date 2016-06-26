@@ -26,3 +26,12 @@
     background-color: #5bc0de;
     color: azure;
 }
+
+#table-new-url-container{
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+#table-new-url-container h1{
+	text-align: center;
+}

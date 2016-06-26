@@ -1,16 +1,21 @@
 <template name="allUrl">
-	<div id="new-url-container">
+	<div id="table-new-url-container"> 
       <div><h1>New URLs</h1></div>
-      <div id="new-url-container"> 
-      	<table>
+      	<table class="table table-striped">
+      		<thead>
+    			<tr>
+		      		<th>Short URL</th>
+		      		<th>Counter</th>
+      			</tr>
+  			</thead>
+  			<tbody>
 	      	{{#each allURL}}
 		      	<tr>
-		      		<td>{{url}}</td>
-		      		<td>{{shorter_url}}</td>
+		      		<td><a href="{{currentDomain}}{{shorter_url}}">{{currentDomain}}{{shorter_url}}</a></td>
 		      		<td>{{counter}}</td>
 		        </tr>
 	      	{{/each}}
+	      </tbody>
       	</table>
-      </div>	
     </div>
 </template>
