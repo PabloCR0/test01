@@ -73,20 +73,20 @@ Template.home.events({
   },
 
 });
-/*
-Template.allUrl.allURL = function () {
-  return ShorterUrl.find({limit: 5});
-};
-*/
-/*
+
 Template.allUrl.helpers({
     'allURL': function(){
-      var x = ShorterUrl.find({}).fetch();
-      console.log(x[0]);
-        return x[0];
+      var x = ShorterUrl.find();
+      if(x != undefined){
+        return x;
+      }
+    },
+    'currentDomain': function(){
+      return Meteor.absoluteUrl();      
     }
+    
 });
 
-*/
+
 
 
