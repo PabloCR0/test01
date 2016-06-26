@@ -1,0 +1,16 @@
+<template name="allUrl">
+	<div id="new-url-container">
+      <div><h1>New URLs</h1></div>
+      <div id="new-url-container"> 
+      	<table>
+	      	{{#each allURL}}
+		      	<tr>
+		      		<td>{{url}}</td>
+		      		<td>{{shorter_url}}</td>
+		      		<td>{{counter}}</td>
+		        </tr>
+	      	{{/each}}
+      	</table>
+      </div>	
+    </div>
+</template>
