@@ -37,16 +37,6 @@ function generateURLCode(){
   return Random.id(op);
 }
 
-function validateGeneratedCode(){
-  var newCode = generateURLCode();
-  if(isCurrentShortUrl(newCode)){
-    validateGeneratedCode();
-  } else {
-    return newCode;
-  }
-}
-
-
 Template.home.events({
 
   'submit .shorter-url-form'(event) {
