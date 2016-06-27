@@ -8,8 +8,9 @@ import './shortenerUrlSection.html';
 import './allUrl.html';
 
 
-
-//it validates the inserted  url
+/*
+*it validates the inserted  url
+*/
 function validateURL(currentUrl) {
     var regexp = new RegExp("^http(s?)\:\/\/[0-9a-zA-Z]([-.\w]*[0-9a-zA-Z])*(:(0-9)*)*(\/?)([a-zA-Z0-9\-\.\?\,\'\/\\\+&amp;%\$#_]*)?$");
     if (!regexp.test(currentUrl)) {
@@ -19,7 +20,9 @@ function validateURL(currentUrl) {
     }
 }
 
-//it checks if there is ahother shorturl  
+/*
+*it checks if there is ahother shorturl
+*/
 function isCurrentShortUrl(shortURL){
   var obj = ShorterUrl.find({ shorter_url: shortURL }, {fields: {'url':1}}).fetch();
   if(obj[0] != undefined){
@@ -29,13 +32,16 @@ function isCurrentShortUrl(shortURL){
   }
 }
 
-//it generates the url code
+/*
+*it generates the url code
+*/
 function generateURLCode(){
   //generate a random number 5 - 9
   var op = Math.floor(Math.random() * (10 - 5)) + 5;
   //generate the url code
   return Random.id(op);
 }
+
 
 Template.home.events({
 
@@ -47,7 +53,7 @@ Template.home.events({
     const text = target.text.value;
     if(validateURL(text)){
       var newCode = generateURLCode();
-      
+      //Insert on collection
 	    ShorterUrl.insert({
 	      url: text,
 	      shorter_url: newCode,
@@ -64,6 +70,9 @@ Template.home.events({
 
 });
 
+/*
+* Create helers for allURL template
+*/
 Template.allUrl.helpers({
     'allURL': function(){
       var x = ShorterUrl.find();
